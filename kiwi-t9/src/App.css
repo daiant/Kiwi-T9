@@ -5,11 +5,13 @@ main {
   flex-wrap: wrap-reverse;
 }
 .title {
-  font-size: 1em;
+  font-size: 3em;
 }
 .nokia {
   border: 1px solid black;
   max-width: 500px;
+  /* position: fixed;
+  bottom: 0; */
 }
 .button-holder {
   display: grid;
