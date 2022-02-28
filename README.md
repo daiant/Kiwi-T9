@@ -15,7 +15,10 @@ Take this task as a chance to present your skills. If you are good in UI, let
 us see that. If you are more into the backend, it's OK to have simple FE. If
 you know what tests are for, don't keep it for yourself, show it in the code.
 Ways to go beyond the minimal solution could include for example:
-- phone keyboard -like UI - great project setup - mobile app in
-React Native - filtering to include only real words based on a
-suitable word list
+- phone keyboard 
+- like UI 
+- great project setup 
+- mobile app in React Native 
+- filtering to include only real words based on a suitable word list
+
 The task should contain unit tests
