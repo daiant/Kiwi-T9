@@ -1,17 +1,73 @@
+header {
+  padding: 0 10%;
+}
 main {
   display: flex;
   justify-content: space-between;
   padding: 0 10%;
   flex-wrap: wrap-reverse;
+  gap: 50px;
+}
+.col-1, .col-2 {
+  flex: 1 1 0;
+}
+.col-1 {
+  position:fixed;
+  bottom: 0;
+  left: 0;
+  right: 0;
+  margin: 0 auto;
+  max-width: 500px;
+  background-color: white;
 }
 .title {
-  font-size: 3em;
+  font-size: 2em;
+}
+.query-text {
+  max-width: 450px;
+}
+.title-section {
+  border-bottom: 1px solid black;
+  cursor: pointer;
+  padding: 1em;
+  margin-bottom: 1em;
+}
+.right {
+  float: right;
+  transition: transform 0.3s ease;
+}
+.right.active {
+  transform: rotate(90deg);
+}
+
+.prediction {
+  padding: 0 1em;
+  margin-bottom: 1em;
+  transition: all 0.3s ease;
+}
+.prediction.small {
+  /* max-height: 50px;
+  text-overflow: ellipsis;
+  overflow: hidden;
+  white-space: nowrap; */
+  height: 0;
+  overflow: hidden;
 }
 .nokia {
-  border: 1px solid black;
-  max-width: 500px;
+  border-top: 1px solid black;
+  position: relative;
+  max-width: 100%;
+  /* max-width: 500px; */
   /* position: fixed;
   bottom: 0; */
+}
+#text-input {
+  width: 100%;
+  border: 0px transparent;
+  padding: 0;
+  text-align: center;
+  height: 3em;
+  font-size: 18px;
 }
 .button-holder {
   display: grid;
@@ -22,4 +78,26 @@ main {
   padding: 16px;
   border: 1px dotted gray;
   cursor: pointer;
+}
+.people .list {
+  list-style: none;
+  padding: 0;
+  display: flex;
+  justify-content: flex-start;
+  gap: 30px;
+  row-gap: 10px;
+  flex-wrap: wrap;
+}
+.people .list li {
+  width: 100%;
+  padding: 10px;
+  display: flex;
+  gap: 30px;
+  padding-right: 30px;
+  border: 1px solid aquamarine;
+  max-width: 300px;
+  transition: all 0.5s ease-in;
+}
+.people .list li img {
+  border-radius: 100%;
 }
