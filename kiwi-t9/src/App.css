@@ -1,4 +1,4 @@
-header {
+header, main {
   padding: 0 10%;
 }
 main {
@@ -23,8 +23,9 @@ main {
 .title {
   font-size: 2em;
 }
-.query-text {
-  max-width: 450px;
+.query-text, .col-2 {
+  margin: auto;
+  max-width: 700px;
 }
 .title-section {
   border-bottom: 1px solid black;
@@ -53,7 +54,7 @@ main {
   height: 0;
   overflow: hidden;
 }
-.nokia {
+#nokia {
   border-top: 1px solid black;
   position: relative;
   max-width: 100%;
@@ -83,10 +84,14 @@ main {
   list-style: none;
   padding: 0;
   display: flex;
-  justify-content: flex-start;
-  gap: 30px;
+  justify-content: space-between;
   row-gap: 10px;
   flex-wrap: wrap;
+  margin-bottom: 350px;
+}
+.people .list.small {
+  height: 0;
+  overflow: hidden;
 }
 .people .list li {
   width: 100%;

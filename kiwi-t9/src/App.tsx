@@ -32,6 +32,7 @@ function App() {
       }).then((data) => {
         setUsers(data.results);
       });
+
     }
 
     if(!Number.isNaN(parseInt(query))) {
@@ -99,7 +100,7 @@ function App() {
         </div>
         <div className='query-text'>
           <div>
-            <div className="title-section" onClick={() => setPredictionVisibility(!predictionVisibility)}>Prediction: <span className={predictionVisibility ? 'active right' : 'right'}>&#8919;</span></div>
+            <div className="title-section" onClick={() => setPredictionVisibility(!predictionVisibility)}>Prediction <span className={predictionVisibility ? 'active right' : 'right'}>&#8919;</span></div>
             <div className={predictionVisibility ? "prediction" : "prediction small"}>{prediction.length > 1 ? prediction.join("\n") : "Input a number to begin"}</div></div>
         </div>
       </div>
@@ -108,7 +109,7 @@ function App() {
       <div className='col-1'>
         
 
-        <div className='nokia'>
+        <div id='nokia'>
           <form className="form">
             <input type="number" id="text-input" maxLength={5} onChange={predict} placeholder='Input a number' ></input>
           </form>
@@ -126,7 +127,7 @@ function App() {
       <div className="col-2">
         <div className="people">
           <div className='title-section' onClick={() => setContactsVisibility(!contactsVisibility)}>Contacts<span className={contactsVisibility ? 'active right' : 'right'}>&#8919;</span></div>
-          <div className='list'>
+          <div className={contactsVisibility ? 'list' : 'list small'}>
             {users && users.map((item, index) => {
               if(included(`${item.name.first} ${item.name.last}`)) {
                   return <li key={index} data-name={`${item.name.first} ${item.name.last}`}>
