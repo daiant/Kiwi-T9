@@ -1,0 +1,23 @@
+main {
+  display: flex;
+  justify-content: space-between;
+  padding: 0 10%;
+  flex-wrap: wrap-reverse;
+}
+.title {
+  font-size: 1em;
+}
+.nokia {
+  border: 1px solid black;
+  max-width: 500px;
+}
+.button-holder {
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+}
+.button {
+  text-align: center;
+  padding: 16px;
+  border: 1px dotted gray;
+  cursor: pointer;
+}
