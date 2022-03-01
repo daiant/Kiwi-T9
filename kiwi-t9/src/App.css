@@ -1,19 +1,23 @@
+@import url('https://fonts.googleapis.com/css?family=Oswald');
+@import url('https://fonts.googleapis.com/css?family=Lato');
 :root {
-  --bg-color-900: #0A131F;
-  --bg-color-600: #0F1D2E;
-  --bg-color: #14253D;
-  --bg-color-ligth: #192F4D;
-  --color-primary: #F1FAEE;
-  --color-secondary: #D1DEF0;
-  --color-accent:  #F4A4AB;
+  --bg-color: #1c1c1c;
+  --bg-color-medium: #282828;
+  --bg-color-light: #333333;
+  --bg-color-gray: #283b56;
+  --color-primary: #ccc;
+  --color-secondary: #fff;
+  --color-accent:#f082ac;
+  --color-accent-secondary: #48a67f;
+
   -webkit-tap-highlight-color: transparent;
 }
 body {
-  background-color: var(--bg-color-900);
+  background-color: var(--bg-color);
   color: var(--color-primary);
   touch-action: none;
   font-size: 18px;
-
+  font-family: 'Lato';
 }
 header, main {
   padding: 0 5%;
@@ -25,26 +29,36 @@ main {
 .col-2 {
   width: 100%;
 }
-
+.title {
+  font-family: 'Oswald';
+}
 .title-section {
-  border-bottom: 1px solid var(--bg-color-ligth);
+  border-bottom: 1px solid var(--bg-color-medium);
   cursor: pointer;
   padding: 1em;
 }
 .right {
   float: right;
-  transition: transform 0.3s ease;
+  height: 16px;
+  width: 16px;
+  transition: transform 450ms ease;
+  position: relative;
+}
+.right img {
+  position: absolute;
+  width: 100%;
+  height: auto;
 }
 .right.active {
-  transform: rotate(90deg);
+  transform-origin: center;
+  transform: rotate(225deg);
 }
 
 .prediction {
   padding: 1em;
   margin-bottom: 1em;
   transition: all 0.3s ease;
-  border: 1px solid var(--bg-color);
-  border-top: transparent;
+
 }
 .prediction.small {
   /* max-height: 50px;
@@ -71,18 +85,26 @@ main {
   color: var(--color-primary);
 }
 .moving {
-  height: 48px;
-  background-color: var(--bg-color);
+  height: 32px;
+  background-color: var(--bg-color-medium);
   border-radius: 30px 30px 0 0;
+  border-width: 1px 1px 0 0;
+  border-style: solid;
+  border-color: var(--bg-color-light);
+  box-shadow: 0 -1px 1px rgba(0, 0, 0, 0.5);
+
   display: flex;
   justify-content: center;
   align-items: center;
 }
 .moving #slider {
   width: 60%;
-  height: 6px;
+  height: 3px;
   background-color: var(--color-secondary);
   border-radius: 8px;
+}
+.smooth {
+  transition: bottom 300ms ease;
 }
 #text-input {
   width: 100%;
@@ -91,7 +113,7 @@ main {
   text-align: center;
   height: 3em;
   font-size: 18px;
-  background-color: var(--bg-color-ligth);
+  background-color: var(--bg-color-medium);
   color: var(--color-accent);
 }
 
@@ -103,12 +125,11 @@ main {
 }
 .button-holder {
   display: grid;
-  background-color: var(--bg-color);
-
+  background-color: var(--bg-color-medium);
   grid-template-columns: repeat(3, 1fr);
   justify-items: center;
   row-gap: 16px;
-  padding: 16px 0;
+  padding: 1em 2em;
 }
 .button {
   display: flex;
@@ -117,10 +138,26 @@ main {
   flex-direction: column;
   width: 64px;
   height: 64px;
-  border: 1px solid var(--color-accent);
-  border-radius: 100%;
+  background-color: var(--bg-color-light);
+  color: var(--color-accent);
+  border-radius: 7px;
   cursor: pointer;
+  border: 1px solid var(--bg-color-medium);
+  box-shadow: 0 1px 1px rgb(0 0 0 / 50%);
+  transition: border-color 300ms ease;
 }
+.button.special {
+  color: var(--color-accent);
+  border-color: var(--color-accent);
+  background-color: transparent;
+}
+.button:hover, .button:active {
+  border-color: var(--color-accent);
+}
+.button:active {
+  background-color: var(--bg-color-ligth);
+}
+
 .people .list {
   list-style: none;
   padding: 1em 0 0 0;
@@ -142,11 +179,14 @@ main {
   padding: 10px 30px 10px 20px;
   display: flex;
   gap: 20px;
-  background-color: var(--bg-color-600);
-  /* border: 1px solid var(--bg-color-ligth); */
+  background-color: var(--bg-color-medium);
+  border: 1px solid var(--bg-color-light);
+  box-shadow: 0 1px 1px rgb(0 0 0 / 50%);
   border-radius: 3px;
-  
   transition: all 0.5s ease-in;
+}
+.user-item:hover {
+  background-color: var(--bg-color-light);
 }
 .user-item img {
   border-radius: 100%;
@@ -156,4 +196,27 @@ main {
   display: flex;
   flex-direction: column;
   gap: 5px;
+}
+.call {
+  position: relative;
+  margin-left: auto;
+  width: 50px;
+  transition: background-color 300ms ease;
+  background-color: transparent;
+}
+.call img {
+  position: absolute;
+  width: 16px;
+  top: 50%;
+  transform: translateY(-50%);
+  padding: 16px;
+  border: 1px solid var(--color-accent-secondary);
+  transition: background-color 150ms ease;
+  background-color: transparent;
+}
+.call:hover img {
+  background-color: var(--color-accent-secondary);
+}
+.call:active img {
+  background-color: #3E8E6D;
 }

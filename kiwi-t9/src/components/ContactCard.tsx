@@ -6,6 +6,9 @@ export function ContactCard({user}: any) {
                 <div className="name">{user.name.first} {user.name.last}</div>
                 <div className="phone">{user.phone}</div>
             </div>
+            <div className="call">
+                <img src="/phone.png" alt="Call" />
+            </div>
         </li>
     )
 }

@@ -2,6 +2,7 @@ import React, { useRef, useState } from "react";
 
 export function Nokia(props: any) {
     const [position, setPosition] = useState(0);
+    const [animation, setAnimation] = useState(false);
     const [clientY, setClientY] = useState(0);
     const button_holder = React.useRef<HTMLDivElement>(null);
     const [buttons, setButtons] = useState([
@@ -67,19 +68,18 @@ export function Nokia(props: any) {
         }
     }
     function snapPosition() {
-        if(position >= -150) {
+        setAnimation(true);
+        const buttonHeight = button_holder.current?.clientHeight || 350;
+        if(position <= buttonHeight*-1 / 2) {
+            setPosition(buttonHeight*-1);
+         }
+        else {
             setPosition(0)
         }
-        else {
-            const buttonHeight = button_holder.current?.clientHeight || 0;
-
-            if(position <= buttonHeight*-1 + 150) {
-               setPosition(buttonHeight*-1);
-            }
-        }
+        setTimeout(() => setAnimation(false), 300);
     }
     return (
-    <div id='nokia' style={{bottom: position}}>
+    <div id='nokia' className={animation ? "smooth" : ""}style={{bottom: position}}>
         <div className="moving" onTouchStart={initializePosition}onTouchMove={slideNokia} onTouchEnd={snapPosition}>
             <div id="slider"></div>
         </div>
@@ -88,8 +88,8 @@ export function Nokia(props: any) {
         </form>
         <div className='button-holder' ref={button_holder}>
             {buttons.map((item, index: number) => {
-
-                return <div className="button" key={index} onClick={() => addNumber(item.id)}>
+                let special = index == 9 || index == 11;
+                return <div className={special ? "button special" : "button"} key={index} onClick={() => addNumber(item.id)}>
                 <div className="id">{item.id}</div>
                 <div className="letters">{item.abc.join("")}</div>
                 </div>}

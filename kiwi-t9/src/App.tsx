@@ -74,13 +74,13 @@ function App() {
       <div className="col-1">
           <div className='query-text'>
             <div>
-              <div className="title-section" onClick={() => setPredictionVisibility(!predictionVisibility)}>Prediction <span className={predictionVisibility ? 'active right' : 'right'}>&#8919;</span></div>
+              <div className="title-section" onClick={() => setPredictionVisibility(!predictionVisibility)}>Prediction <span className={predictionVisibility ? 'active right' : 'right'}><img src='/plus.png' /></span></div>
               <div className={predictionVisibility ? "prediction" : "prediction small"}>{prediction.length > 1 ? prediction.join("\n") : "Input a number to begin"}</div></div>
           </div>
       </div>
       <div className="col-2">
         <div className="people">
-          <div className='title-section' onClick={() => setContactsVisibility(!contactsVisibility)}>Contacts ({checkUsers()})<span className={contactsVisibility ? 'active right' : 'right'}>&#8919;</span></div>
+          <div className='title-section' onClick={() => setContactsVisibility(!contactsVisibility)}>Contacts ({checkUsers()})<span className={contactsVisibility ? 'active right' : 'right'}><img src='/plus.png' /></span></div>
           <div className={contactsVisibility ? 'list' : 'list small'}>
             {users && users.map((item, index) => {
               if(included(`${item.name.first} ${item.name.last}`)) {
