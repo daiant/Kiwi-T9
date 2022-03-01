@@ -1,3 +1,4 @@
+import e from "express";
 import React, { useRef, useState } from "react";
 
 export function Nokia(props: any) {
@@ -5,7 +6,7 @@ export function Nokia(props: any) {
     const [animation, setAnimation] = useState(false);
     const [clientY, setClientY] = useState(0);
     const button_holder = React.useRef<HTMLDivElement>(null);
-    const [buttons, setButtons] = useState([
+    const buttons = [
         {id: 1, abc: []},
         {id: 2, abc: ["a", "b", "c"]},
         {id: 3, abc: ["d", "e", "f"]},
@@ -18,7 +19,7 @@ export function Nokia(props: any) {
         {id: "Clear", abc: []},
         {id: 0, abc: []},
         {id: "Delete", abc: []}
-        ]);
+    ];
 
     function predict(e: React.SyntheticEvent) {
         e.preventDefault();
@@ -78,12 +79,13 @@ export function Nokia(props: any) {
         }
         setTimeout(() => setAnimation(false), 300);
     }
+
     return (
     <div id='nokia' className={animation ? "smooth" : ""}style={{bottom: position}}>
         <div className="moving" onTouchStart={initializePosition}onTouchMove={slideNokia} onTouchEnd={snapPosition}>
             <div id="slider"></div>
         </div>
-        <form className="form">
+        <form className="form" onSubmit={(e:React.FormEvent)=> e.preventDefault()}>
             <input type="number" autoComplete="off" id="text-input" maxLength={5} onChange={predict} placeholder='Input a number' ></input>
         </form>
         <div className='button-holder' ref={button_holder}>

@@ -1,16 +1,18 @@
 import React, { useEffect, useState } from 'react';
 import './App.css';
 import { ContactCard } from './components/ContactCard';
+import { DialScreen } from './components/DialScreen';
 import { Nokia } from './components/Nokia';
 import { numberToPredictions } from './lib/calc';
 
 function App() {
-  const [query, setQuery] = useState("");
+  const [query, setQuery] = useState<string>("");
   const [users, setUsers] = useState<Array<any>>();
   const [predictionVisibility, setPredictionVisibility] = useState<boolean>(true);
   const [contactsVisibility, setContactsVisibility] = useState<boolean>(true);
-  
   const [prediction, setPrediction] = useState<Array<string>>([""]);
+  const [calling, setCalling] = useState<boolean>(false);
+  const [userCalling, setUserCalling] = useState<any>(null);
 
   useEffect(() => {
     if(users === undefined) {
@@ -32,7 +34,7 @@ function App() {
         console.log("Limit reached");
       }
     } else {
-      console.log("malament");
+      setPrediction(numberToPredictions(""))
     }
   }, [query, users]);
   
@@ -84,7 +86,7 @@ function App() {
           <div className={contactsVisibility ? 'list' : 'list small'}>
             {users && users.map((item, index) => {
               if(included(`${item.name.first} ${item.name.last}`)) {
-                  return <ContactCard key={index} user={item} />
+                  return <ContactCard key={index} user={item} handleCalling={setCalling} handleUserCalling={setUserCalling} />
               } 
             })}
           </div>
@@ -93,7 +95,9 @@ function App() {
 
     </main>
     <Nokia handleQuery={setQuery} handlePrediction={setPrediction} />
-
+    {calling && <>
+      <DialScreen user={userCalling} calling={calling} handleCalling={setCalling} />
+    </>}
     </>
   );
 }
