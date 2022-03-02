@@ -5,6 +5,10 @@
   padding: 0;
   box-sizing: border-box;
 }
+a {
+  text-decoration: dashed;
+  color: var(--color-primary);
+}
 :root {
   --bg-color: #1c1c1c;
   --bg-color-medium: #282828;
