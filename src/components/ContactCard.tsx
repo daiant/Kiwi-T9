@@ -1,3 +1,4 @@
+import '../css/ContactCard.css'
 export function ContactCard({user, handleCalling, handleUserCalling}: any) {
     
     function call() {

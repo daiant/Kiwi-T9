@@ -1,5 +1,5 @@
 import React, { useEffect, useState } from 'react';
-import './App.css';
+import './css/App.css';
 import { ContactCard } from './components/ContactCard';
 import { DialScreen } from './components/DialScreen';
 import { Nokia } from './components/Nokia';
@@ -24,7 +24,7 @@ function App() {
       });
 
     }
-    if(query.length > 5) return;
+    if(query.length > 9) return;
     if(Number.isNaN(query)) setQuery("");
     
     fetch("/predict", {
