@@ -9,6 +9,6 @@ However, the project can be downloaded and run in a local environment.
 ## Installation
 Download the code and run 
 ```
-cd server && npm run start
+cd server && npm install && npm run start
 ```
 Hoping you get a blast!
