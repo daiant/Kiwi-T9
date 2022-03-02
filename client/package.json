@@ -1,7 +1,6 @@
 {
   "name": "kiwi-t9",
   "version": "0.1.0",
-  "homepage": "https://daiant.github.io/Kiwi-T9",
   "private": true,
   "proxy": "http://localhost:3001",
   "dependencies": {
