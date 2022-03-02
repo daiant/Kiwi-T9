@@ -1,0 +1,95 @@
+#nokia {
+    position: relative;
+    max-width: 100%;
+    /* max-width: 500px; */
+    /* position: fixed;
+    bottom: 0; */
+    position:fixed;
+    bottom: 0;
+    left: 0;
+    right: 0;
+    margin: 0 auto;
+    max-width: 500px;
+    color: var(--color-primary);
+  }
+  .moving {
+    cursor: pointer;
+    height: 32px;
+    background-color: var(--bg-color-medium);
+    border-radius: 30px 30px 0 0;
+    border-width: 1px 1px 0 0;
+    border-style: solid;
+    border-color: var(--bg-color-light);
+    box-shadow: 0 -1px 1px rgba(0, 0, 0, 0.5);
+  
+    display: flex;
+    justify-content: center;
+    align-items: center;
+  }
+  .moving #slider {
+    width: 60%;
+    height: 3px;
+    background-color: var(--color-secondary);
+    border-radius: 8px;
+  }
+  .smooth {
+    transition: bottom 300ms ease;
+  }
+  #text-input {
+    width: 100%;
+    border: 0px transparent;
+    padding: 0;
+    text-align: center;
+    height: 3em;
+    font-size: 18px;
+    background-color: var(--bg-color-medium);
+    color: var(--color-accent);
+  }
+  
+  #text-input:focus {
+    outline: none !important;
+  }
+  #text-input::placeholder {
+    color: var(--color-accent);
+  }
+  .button-holder {
+    display: grid;
+    background-color: var(--bg-color-medium);
+    grid-template-columns: repeat(3, 1fr);
+    justify-items: center;
+    row-gap: 16px;
+    padding: 1em 2em;
+  }
+  .button {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    flex-direction: column;
+    width: 64px;
+    height: 64px;
+    background-color: var(--bg-color-light);
+    color: var(--color-accent);
+    /* border-radius: 7px; */
+    border-radius: 50%;
+    cursor: pointer;
+    border: 1px solid var(--bg-color-medium);
+    box-shadow: 0 1px 1px rgb(0 0 0 / 50%);
+    transition: border-color 300ms ease;
+  }
+  .button.special {
+    color: var(--color-accent);
+    border-color: var(--color-accent);
+    background-color: transparent;
+  }
+  .button:hover, .button:active {
+    border-color: var(--color-accent);
+  }
+  .button:active {
+    background-color: var(--bg-color-ligth);
+  }
+
+  @media (min-width: 768px) {
+      #nokia {
+          margin-left: 5%;
+      }
+  }

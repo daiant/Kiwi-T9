@@ -1,4 +1,4 @@
-import e from "express";
+import '../css/Nokia.css'
 import React, { useRef, useState } from "react";
 
 export function Nokia(props: any) {

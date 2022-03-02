@@ -1,6 +1,7 @@
 import { spline }  from '@georgedoescode/spline';
 import { useEffect, useRef, useState } from 'react';
 import SimplexNoise from 'simplex-noise';
+import '../css/DialScreen.css'
 
 export function DialScreen(props: any) {
     let pauseAnimation = false;

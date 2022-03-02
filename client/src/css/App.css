@@ -1,0 +1,96 @@
+@import url('https://fonts.googleapis.com/css?family=Oswald');
+@import url('https://fonts.googleapis.com/css?family=Nunito');
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+:root {
+  --bg-color: #1c1c1c;
+  --bg-color-medium: #282828;
+  --bg-color-light: #333333;
+  --bg-color-gray: #283b56;
+  --color-primary: #ccc;
+  --color-secondary: #fff;
+  --color-accent:#f082ac;
+  --color-accent-secondary: #48a67f;
+
+  -webkit-tap-highlight-color: transparent;
+}
+body {
+  background-color: var(--bg-color);
+  color: var(--color-primary);
+  touch-action: none;
+  font-size: 18px;
+  font-family: 'Nunito';
+}
+header, main {
+  margin: 0 auto;
+  max-width: 90%;
+}
+main {
+  touch-action: auto;
+  overflow: auto;
+  display: flex;
+  flex-direction: column;
+  column-gap: 2em;
+}
+.col-1 {
+  flex-basis: 40%;
+  flex-grow: 0;
+}
+.col-2 {
+  flex-basis: 60%;
+  flex-grow: 0;
+}
+.title {
+  margin-top: 1em;
+  font-family: 'Oswald';
+}
+.title-section {
+  border-bottom: 1px solid var(--bg-color-medium);
+  cursor: pointer;
+  padding: 1em;
+}
+.right {
+  float: right;
+  height: 16px;
+  width: 16px;
+  transition: transform 450ms ease;
+  position: relative;
+}
+.right img {
+  position: absolute;
+  width: 100%;
+  height: auto;
+}
+.right.active {
+  transform-origin: center;
+  transform: rotate(225deg);
+}
+
+.prediction {
+  padding: 1em;
+  margin-bottom: 1em;
+  transition: all 0.3s ease;
+
+}
+.prediction.small {
+  /* max-height: 50px;
+  text-overflow: ellipsis;
+  overflow: hidden;
+  white-space: nowrap; */
+  height: 0;
+  padding: 0 1em;
+  border-color: transparent;
+  overflow: hidden;
+}
+
+@media (min-width: 768px) {
+  main {
+    flex-direction: row;
+  }
+  .list {
+    margin-bottom: 1em;
+  }
+}
