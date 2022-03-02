@@ -3,7 +3,6 @@ import './App.css';
 import { ContactCard } from './components/ContactCard';
 import { DialScreen } from './components/DialScreen';
 import { Nokia } from './components/Nokia';
-import { numberToPredictions } from './lib/calc';
 
 function App() {
   const [query, setQuery] = useState<string>("");
@@ -25,17 +24,18 @@ function App() {
       });
 
     }
-
-    if(!Number.isNaN(parseInt(query))) {
-
-      if(query.length <= 5) {
-        setPrediction(numberToPredictions(query));
-      } else {
-        console.log("Limit reached");
-      }
-    } else {
-      setPrediction(numberToPredictions(""))
-    }
+    if(query.length > 5) return;
+    if(Number.isNaN(query)) setQuery("");
+    
+    fetch("/predict", {
+      method: "POST",
+      headers: { 'Content-Type': 'application/json' },
+      body: JSON.stringify({
+        query: query
+      })
+    })
+      .then((res) => res.json())
+      .then((data) => setPrediction(data.message));
   }, [query, users]);
   
   function predict(e: React.SyntheticEvent) {

@@ -375,4 +375,7 @@ main {
   #nokia {
     margin-left: 5%;
   }
+  .list {
+    margin-bottom: 1em;
+  }
 }
