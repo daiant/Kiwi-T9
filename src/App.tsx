@@ -61,7 +61,7 @@ function App() {
     <>
     <header>
         <div className="title">
-            <h2>Mobile T9</h2>
+            <h2><a href="https://github.com/daiant">Mobile T9</a></h2>
           </div>
           
     </header>
