@@ -11,7 +11,7 @@ Download the code and run
 ```
 cd server && npm install && npm run start
 ```
-It will be then located at [http://localhost:3001](http://localhost:3001)
+It will be then located at [http://localhost:3001](http://localhost:3001).
 Hoping you get a blast!
 
 
