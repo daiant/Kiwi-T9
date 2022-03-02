@@ -3,6 +3,7 @@ import './css/App.css';
 import { ContactCard } from './components/ContactCard';
 import { DialScreen } from './components/DialScreen';
 import { Nokia } from './components/Nokia';
+import { numberToPredictions } from './mock/calc';
 
 function App() {
   const [query, setQuery] = useState<string>("");
@@ -26,7 +27,9 @@ function App() {
     }
     if(query.length > 9) return;
     if(Number.isNaN(query)) setQuery("");
-    
+  // DEPLOYMENT VERSION
+  // setPrediction(numberToPredictions(query));
+  // NON-DEPLOYMENT VERSION  
     fetch("/predict", {
       method: "POST",
       headers: { 'Content-Type': 'application/json' },
