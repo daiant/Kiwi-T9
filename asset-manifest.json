@@ -1,13 +1,13 @@
 {
   "files": {
     "main.css": "/Kiwi-T9/static/css/main.9a289472.css",
-    "main.js": "/Kiwi-T9/static/js/main.ffb02021.js",
+    "main.js": "/Kiwi-T9/static/js/main.5476014a.js",
     "index.html": "/Kiwi-T9/index.html",
     "main.9a289472.css.map": "/Kiwi-T9/static/css/main.9a289472.css.map",
-    "main.ffb02021.js.map": "/Kiwi-T9/static/js/main.ffb02021.js.map"
+    "main.5476014a.js.map": "/Kiwi-T9/static/js/main.5476014a.js.map"
   },
   "entrypoints": [
     "static/css/main.9a289472.css",
-    "static/js/main.ffb02021.js"
+    "static/js/main.5476014a.js"
   ]
 }
