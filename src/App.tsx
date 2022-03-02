@@ -28,17 +28,17 @@ function App() {
     if(query.length > 9) return;
     if(Number.isNaN(query)) setQuery("");
   // DEPLOYMENT VERSION
-  // setPrediction(numberToPredictions(query));
+  setPrediction(numberToPredictions(query));
   // NON-DEPLOYMENT VERSION  
-    fetch("/predict", {
-      method: "POST",
-      headers: { 'Content-Type': 'application/json' },
-      body: JSON.stringify({
-        query: query
-      })
-    })
-      .then((res) => res.json())
-      .then((data) => setPrediction(data.message));
+    // fetch("/predict", {
+    //   method: "POST",
+    //   headers: { 'Content-Type': 'application/json' },
+    //   body: JSON.stringify({
+    //     query: query
+    //   })
+    // })
+    //   .then((res) => res.json())
+    //   .then((data) => setPrediction(data.message));
   }, [query, users]);
   
   function included(name: string): boolean {
