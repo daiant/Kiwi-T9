@@ -97,6 +97,7 @@ export function DialScreen(props: any) {
         }, 1200);
     }
     return(<>
+        <div id="dial-mask"></div>
         <div id="dial-screen" className={closing ? "hide-dialog" : ""}>
             <div className="info">
                 <div className="text">Calling to*</div>

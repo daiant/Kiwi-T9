@@ -79,10 +79,16 @@ export function Nokia(props: any) {
         }
         setTimeout(() => setAnimation(false), 300);
     }
-
+    function desktopToggleHide() {
+        setAnimation(true);
+        const buttonHeight = button_holder.current?.clientHeight || 350;
+        const newPos = position < 0 ? 0 : buttonHeight*-1;
+        setPosition(newPos);
+        setTimeout(() => setAnimation(false), 300);
+    }
     return (
     <div id='nokia' className={animation ? "smooth" : ""}style={{bottom: position}}>
-        <div className="moving" onTouchStart={initializePosition}onTouchMove={slideNokia} onTouchEnd={snapPosition}>
+        <div className="moving" onClick={desktopToggleHide} onTouchStart={initializePosition} onTouchMove={slideNokia} onTouchEnd={snapPosition}>
             <div id="slider"></div>
         </div>
         <form className="form" onSubmit={(e:React.FormEvent)=> e.preventDefault()}>

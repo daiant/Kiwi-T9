@@ -25,21 +25,26 @@ body {
   font-family: 'Nunito';
 }
 header, main {
-  max-width: 500px;
   margin: 0 auto;
+  max-width: 90%;
 }
 main {
   touch-action: auto;
   overflow: auto;
+  display: flex;
+  flex-direction: column;
+  column-gap: 2em;
 }
-.title, .col-1, .col-2 {
-  padding: 0 5%;
-
+.col-1 {
+  flex-basis: 40%;
+  flex-grow: 0;
 }
 .col-2 {
-  width: 100%;
+  flex-basis: 60%;
+  flex-grow: 0;
 }
 .title {
+  margin-top: 1em;
   font-family: 'Oswald';
 }
 .title-section {
@@ -95,6 +100,7 @@ main {
   color: var(--color-primary);
 }
 .moving {
+  cursor: pointer;
   height: 32px;
   background-color: var(--bg-color-medium);
   border-radius: 30px 30px 0 0;
@@ -173,8 +179,8 @@ main {
   list-style: none;
   padding: 1em 0 0 0;
   display: flex;
-  justify-content: space-between;
-  row-gap: 10px;
+  justify-content: space-evenly;
+  gap: 10px;
   flex-wrap: wrap;
   margin-bottom: 500px;
   max-height: 900vh;
@@ -186,6 +192,7 @@ main {
   max-height: 0;
 }
 .user-item {
+  max-width: 350px;
   width: 100%;
   padding: 10px 30px 10px 20px;
   display: flex;
@@ -245,6 +252,15 @@ main {
 #dial-screen.hide-dialog .controls .wrapper {
   animation: shake 300ms 100ms forwards;
   animation-iteration-count: 1;
+}
+#dial-mask {
+  content: "";
+  position: fixed;
+  background-color: var(--bg-color);
+  left: 0;
+  top: 0;
+  width: 100vw;
+  height: 100vh;
 }
 @keyframes shake {
   0% {
@@ -315,6 +331,7 @@ main {
   top: 50%;
   left: 50%;
   transform: translate(-50%, -50%);
+  box-shadow: 0 1px 1px rgb(0 0 0 / 50%);
 }
 .img-wrapper svg {
   width: 100%;
@@ -334,6 +351,9 @@ main {
   justify-content: center;
   align-items: center;
 }
+.controls p  {
+  margin-top: 5px
+}
 .controls img {
   cursor: pointer;
   transform: rotate(-90deg);
@@ -345,5 +365,14 @@ main {
 }
 
 .controls .wrapper:hover {
+  cursor: pointer;
   background-color: red;
+}
+@media (min-width: 768px) {
+  main {
+    flex-direction: row;
+  }
+  #nokia {
+    margin-left: 5%;
+  }
 }

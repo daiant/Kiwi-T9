@@ -1,8 +1,10 @@
 export function ContactCard({user, handleCalling, handleUserCalling}: any) {
     
     function call() {
-        handleCalling(true);
         handleUserCalling(user);
+        setTimeout(() => {
+            handleCalling(true);
+        }, 300)
     }
     return (
         <li className="user-item">
