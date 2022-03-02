@@ -8,10 +8,10 @@ export function ContactCard({user, handleCalling, handleUserCalling}: any) {
     }
     return (
         <li className="user-item">
-            <div className="avatar"><img src={user.picture.medium} alt="" /></div>
+            <div className="avatar" data-testid="img"><img src={user.picture.medium} alt="" /></div>
             <div className="info">
-                <div className="name">{user.name.first} {user.name.last}</div>
-                <div className="phone">{user.phone}</div>
+                <div className="name" data-testid="full-name">{user.name.first} {user.name.last}</div>
+                <div className="phone" data-testid="phone">{user.phone}</div>
             </div>
             <div className="call" onClick={call}>
                 <img src="/phone.png" alt="Call" />
