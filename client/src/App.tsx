@@ -38,16 +38,6 @@ function App() {
       .then((data) => setPrediction(data.message));
   }, [query, users]);
   
-  function predict(e: React.SyntheticEvent) {
-    e.preventDefault();
-    let input: HTMLElement | null  = document.getElementById("text-input");
-    if(input !== null) setQuery((input as HTMLInputElement).value);
-  }
-  function submit(e: React.SyntheticEvent) {
-    e.preventDefault();
-    console.log("ekeiei");
-  }
-
   function included(name: string): boolean {
     if(prediction.length <= 0) return true;
     for(let p of prediction) {
@@ -76,18 +66,19 @@ function App() {
       <div className="col-1">
           <div className='query-text'>
             <div>
-              <div className="title-section" onClick={() => setPredictionVisibility(!predictionVisibility)}>Prediction <span className={predictionVisibility ? 'active right' : 'right'}><img src='/plus.png' /></span></div>
+              <div className="title-section" onClick={() => setPredictionVisibility(!predictionVisibility)}>Prediction <span className={predictionVisibility ? 'active right' : 'right'}><img src='/plus.png' alt="show-more"/></span></div>
               <div className={predictionVisibility ? "prediction" : "prediction small"}>{prediction.length > 1 ? prediction.join("\n") : "Input a number to begin"}</div></div>
           </div>
       </div>
       <div className="col-2">
         <div className="people">
-          <div className='title-section' onClick={() => setContactsVisibility(!contactsVisibility)}>Contacts ({checkUsers()})<span className={contactsVisibility ? 'active right' : 'right'}><img src='/plus.png' /></span></div>
+          <div className='title-section' onClick={() => setContactsVisibility(!contactsVisibility)}>Contacts ({checkUsers()})<span className={contactsVisibility ? 'active right' : 'right'}><img src='/plus.png' alt="show-more"/></span></div>
           <div className={contactsVisibility ? 'list' : 'list small'}>
             {users && users.map((item, index) => {
               if(included(`${item.name.first} ${item.name.last}`)) {
                   return <ContactCard key={index} user={item} handleCalling={setCalling} handleUserCalling={setUserCalling} />
-              } 
+              }
+              return null;
             })}
           </div>
         </div>
