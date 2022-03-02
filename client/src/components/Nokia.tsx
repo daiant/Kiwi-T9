@@ -87,17 +87,17 @@ export function Nokia(props: any) {
         setTimeout(() => setAnimation(false), 300);
     }
     return (
-    <div id='nokia' className={animation ? "smooth" : ""}style={{bottom: position}}>
-        <div className="moving" onClick={desktopToggleHide} onTouchStart={initializePosition} onTouchMove={slideNokia} onTouchEnd={snapPosition}>
+    <div id='nokia' className={animation ? "smooth" : ""}style={{bottom: position}} data-testid="nokia">
+        <div className="moving" onClick={desktopToggleHide} onTouchStart={initializePosition} onTouchMove={slideNokia} onTouchEnd={snapPosition} data-testid="slider"> 
             <div id="slider"></div>
         </div>
         <form className="form" onSubmit={(e:React.FormEvent)=> e.preventDefault()}>
-            <input type="number" autoComplete="off" id="text-input" maxLength={5} onChange={predict} placeholder='Input a number' ></input>
+            <input type="number" autoComplete="off" data-testid="text-input" id="text-input" maxLength={5} onChange={predict} placeholder='Input a number' ></input>
         </form>
         <div className='button-holder' ref={button_holder}>
             {buttons.map((item, index: number) => {
                 let special = index == 9 || index == 11;
-                return <div className={special ? "button special" : "button"} key={index} onClick={() => addNumber(item.id)}>
+                return <div className={special ? "button special" : "button"} data-testid={`button-${item.id}`} key={index} onClick={() => addNumber(item.id)}>
                 <div className="id">{item.id}</div>
                 <div className="letters">{item.abc.join("")}</div>
                 </div>}

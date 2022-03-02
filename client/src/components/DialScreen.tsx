@@ -3,6 +3,7 @@ import { useEffect, useRef, useState } from 'react';
 import SimplexNoise from 'simplex-noise';
 
 export function DialScreen(props: any) {
+    let pauseAnimation = false;
     const [closing, setClosing] = useState<boolean>(false);
     const path = useRef<SVGPathElement>(null);
     const simplex = new SimplexNoise();
@@ -81,19 +82,21 @@ export function DialScreen(props: any) {
         // document.body.style.background = `hsl(${hue + 60}, 75%, 5%)`;
         hueNoiseOffset += noiseStep / 6;
 
-        if(!closing) {
+        if(!pauseAnimation) {
             animation = window.requestAnimationFrame(animate);      
         }      
     }
     useEffect(() => {
-        animate()
-    })
+        if(!pauseAnimation) {
+            animate()
+        }
+    }, [])
     function closeDialog() {
+        pauseAnimation = true;
         setClosing(true);
         setTimeout(()=> {
             props.handleCalling(false); 
             window.cancelAnimationFrame(animation)
-
         }, 1200);
     }
     return(<>
